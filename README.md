@@ -2,35 +2,25 @@
 .ly
 
 
-
-
-
-
-
-
-
-
-
-
-
-//wildcard///
 import java.util.ArrayList;
 
-
-
-
 public class Main {
-    public static void printBooks(ArrayList<?> books) {
-        for (Object b : books) {
-            System.out.println(b);
+    public static double total(ArrayList<? extends Number> prices) {
+        double sum = 0;
+
+        for (Number p : prices) {
+            sum += p.doubleValue();
         }
+
+        return sum;
     }
 
     public static void main(String[] args) {
-        ArrayList<String> books = new ArrayList<>();
-        books.add("Java");
-        books.add("C++");
+        ArrayList<Integer> prices = new ArrayList<>();
+        prices.add(10);
+        prices.add(20);
+        prices.add(30);
 
-        printBooks(books);
+        System.out.println(total(prices));
     }
 }
