@@ -1,26 +1,34 @@
-# -Java-Examples
-.ly
+# Java Team Collaboration Project
 
+This repository follows a clearer Java package structure so a small team can work together more easily.
 
-import java.util.ArrayList;
+## Package layout
 
-public class Main {
-    public static double total(ArrayList<? extends Number> prices) {
-        double sum = 0;
+- `com.team.app` - application entry point and CLI/main logic
+- `com.team.model` - domain objects and data transfer objects
+- `com.team.service` - business logic and calculations
+- `src/test/java` - automated tests
 
-        for (Number p : prices) {
-            sum += p.doubleValue();
-        }
+## Build and run
 
-        return sum;
-    }
+```bash
+mvn compile
+mvn test
+mvn exec:java -Dexec.mainClass="com.team.app.JavaTeamApp"
+```
 
-    public static void main(String[] args) {
-        ArrayList<Integer> prices = new ArrayList<>();
-        prices.add(10);
-        prices.add(20);
-        prices.add(30);
+## Team workflow
 
-        System.out.println(total(prices));
-    }
-}
+- Create a feature branch for each task or bug fix
+- Keep each package focused on one concern
+- Add tests for new business logic
+- Open a pull request before merging to `main`
+
+## Example architecture
+
+This starter project separates:
+- the application startup code
+- the business logic
+- the data model
+
+so the project stays cleaner as the team grows.
